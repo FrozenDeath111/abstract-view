@@ -11,14 +11,14 @@ import { useState } from "react";
 function App() {
   const [mode, setMode] = useState(false);
   return (
-    <div id="root-body">
+    <>
     <Header theme={[mode, setMode]}></Header>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/auth" element={<Auth />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
-    </div>
+    </>
   );
 }
 

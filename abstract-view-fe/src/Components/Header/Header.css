@@ -1,3 +1,101 @@
-a {
+#nav-container {
+    top: 150px;
+    left: 10px;
+    position: relative;
+    height: 70px;
+    width: 70px;
+    background-color: black;
+    border-radius: 50px;
+    transition: 0.4s ease;
+}
+
+#toggle-box {
+    position: relative;
+    display: block;
+    height: 70px;
+    width: 70px;
+    background-color: inherit;
+    border-radius: 50px;
+    transition: 0.4s ease;
+}
+
+#menu-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    background: inherit;
+    color: aliceblue;
+    border: 2px solid aliceblue;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+
+
+#menu-btn:hover {
+    color: aqua;
+    border-color: aqua;
+    transform:translate(-25px, -25px);
+}
+
+#nav-items {
+    position: absolute;
+    visibility: hidden;
+    right: 15px;
+    width: 100%;
+}
+
+.nav-item {
+    list-style: none;
+    display: flex;
+    color: aliceblue;
+    padding: 25px 0px;
+    width: 100%;
+    text-align: center;
+    transition-delay: 0.5s;
+    transition: 0.4s ease;
+}
+
+.nav-item a {
     text-decoration: none;
+    text-transform: uppercase;
+    color: aliceblue;
+    transition-delay: 0.4s;
+    transition: 0.4s;
+}
+
+.nav-item a span {
+    position: absolute;
+    color: greenyellow;
+    margin: 0px 20px;
+    margin-top: 3px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    visibility: hidden;
+    transform: translateX(-15px);
+    transition: 0.4s ease;
+}
+
+.nav-item a:hover {
+    color: greenyellow;
+    transform: scale(1.5);
+}
+
+.nav-item a:hover span {
+    transform: translateX(0px);
+    visibility: visible;
+}
+
+.nav-item p {
+    position: absolute;
+    bottom: 10px;
+    left: -4px;
+    text-transform: uppercase;
+}
+
+#theme-switch {
+    position: absolute;
+    left: -12px;
 }

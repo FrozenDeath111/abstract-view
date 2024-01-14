@@ -1,16 +1,14 @@
-import React from "react";
-
-//Bootstrap
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+//Main
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 //MUI
 import Switch from "@mui/material/Switch";
-import { Avatar } from "@mui/material";
-import Person4Icon from "@mui/icons-material/Person4";
-import { Link } from "react-router-dom";
+import HiveIcon from "@mui/icons-material/Hive";
+import VillaIcon from "@mui/icons-material/Villa";
+import InfoIcon from "@mui/icons-material/Info";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 //Other
 import "./Header.css";
@@ -20,57 +18,75 @@ const Header = (props) => {
   const wTheme = "#FFF";
   const bTheme = "#000";
 
-  const handleChange = (event, eventKey) => {
-    console.log(eventKey);
-    setMode(event.target.checked);
-    const bgTheme = document.getElementById("root-body");
-    if (mode) {
-      bgTheme.style.backgroundColor = wTheme;
-      bgTheme.style.color = bTheme;
+  const [menuToggle, setMenuToggle] = useState(true);
+  const handleMenu = () => {
+    setMenuToggle(!menuToggle);
+    const menuBar = document.getElementById("nav-container");
+    const menuBtn = document.getElementById("menu-btn");
+    const navItems = document.getElementById("nav-items");
+    const navItem = document.getElementsByClassName("nav-item");
+
+    if (menuToggle) {
+      menuBar.style.height = "420px";
+      navItems.style.visibility = "visible";
+      menuBtn.style.transform = "translate(-25px, -25px) rotate(180deg)";
+      for(let item of navItem){
+        item.style.transform = "scale(1)"
+      };
     } else {
-      bgTheme.style.backgroundColor = bTheme;
-      bgTheme.style.color = wTheme;
+      menuBar.style.height = "70px";
+      navItems.style.visibility = "hidden";
+      menuBtn.style.transform = "translate(-25px, -25px) rotate(-180deg)";
+      for(let item of navItem){
+        item.style.transform = "scale(0)"
+      };
     }
   };
 
+  const handleChange = (event) => {
+    setMode(event.target.checked);
+  };
+
   return (
-    <Navbar
-      collapseOnSelect
-      expand="lg"
-      className="bg-body-tertiary"
-      data-bs-theme={mode ? "dark" : "light"}
-    >
-      <Container>
-        <Link to={"/"}>
-          <Navbar.Brand>Logo</Navbar.Brand>
-        </Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <NavDropdown title="Menu" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item eventKey="theme">
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Switch
-                      checked={mode}
-                      onChange={handleChange}
-                      inputProps={{ "aria-label": "controlled" }}
-                    />
-          </Nav>
-          <Nav className="justify-content-end">
-            <Avatar sx={{ bgcolor: mode ? bTheme : wTheme }} variant="rounded">
-              <Person4Icon sx={{ color: mode ? wTheme : bTheme }} />
-            </Avatar>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div id="nav-container">
+      <div id="toggle-box">
+        <button id="menu-btn" onClick={handleMenu}>
+          <HiveIcon fontSize="large"></HiveIcon>
+        </button>
+      </div>
+      <ul id="nav-items">
+        <li className="nav-item">
+          <Link to={"/"}>
+            <VillaIcon fontSize="large"></VillaIcon>
+            <span className="icon-detail">Home</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to={"/about"}>
+            <InfoIcon fontSize="large"></InfoIcon>
+            <span>about</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to={"/auth"}>
+            <LoginIcon fontSize="large"></LoginIcon>
+            <span>login</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          {
+            mode ? <p>dark</p> : <p>light</p>
+          }
+          <span id="theme-switch">
+          <Switch
+            checked={mode}
+            onChange={handleChange}
+            inputProps={{ "aria-label": "controlled" }}
+          />
+          </span>
+        </li>
+      </ul>
+    </div>
   );
 };
 
