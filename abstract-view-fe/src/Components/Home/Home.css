@@ -1,62 +1,91 @@
 .home-root {
-    position: absolute;
-    top: 0px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
+    position: relative;
+    height: fit-content;
+    min-height: 100dvh;
     width: 80%;
-    margin: 0% 10%;
 }
 
 .quote-section {
     display: flex;
-    text-align: center;
-    justify-content: center;
     flex-direction: column;
-    width: 100%;
-    height: fit-content;
-    margin: 10px 0px;
-    border: 1px solid red;
-    display: flex;
+    text-align: center;
 }
 
 .quote-section h1 {
-    margin: 10px 0px;
+    padding: 20px;
 }
 
-.card-section {
+.quote-section h3 {
+    padding-bottom: 30px;
+}
+
+.row {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    height: fit-content;
-    border: 1px solid green;
+    padding: 1%;
 }
 
 .col {
     display: flex;
-    justify-content: space-around;
-    margin: 5px 0px;
-}
-
-.custom-card {
-    display: flex;
-    flex-direction: column;
-    width: 22rem;
-    height: 22rem;
-    padding: 2px;
-    margin: 2px 0px;
-    border: 1px solid blue;
-    border-radius: 10px;
-}
-
-.custom-card-img {
-    object-fit: cover;
+    justify-content: center;
     width: 100%;
-    height: 21rem;
 }
 
-.custom-card-description {
-    visibility: hidden;
+.card {
+    display: flex;
+    text-align: center;
+    height: 340px;
+    width: 22rem;
+    margin: 1%;
+    border: 2px grey solid;
+    transition: 0.4s ease;
+}
+
+.card:hover{
+    border: 2px greenyellow solid;
+}
+
+.card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+.card-img-top:hover{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.card-body {
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    transform: translateY(-50px) scale(0);
+    transition: 0.5s ease;
+}
+
+.card-title {
+    padding: 2px 0px;
+}
+
+.card-text {
+    padding: 2px 0px;
+}
+
+.card-icon {
+    padding: 2px 0px;
+    cursor: pointer;
+}
+
+.card:hover .card-body {
+    height: fit-content;
+    transform: translateY(0px) scale(1);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: aliceblue;
 }

@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home//Home";
 import Auth from "./Components/Auth/Auth";
 import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 import ErrorPage from "./ErrorPage";
 import { useState } from "react";
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/auth" element={<Auth />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
+    <Footer></Footer>
     </>
   );
 }

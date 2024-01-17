@@ -5,41 +5,56 @@ import imgData from "../../Data/imgData.json";
 //Bootstrap
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 
 //MUI
 import StarsIcon from "@mui/icons-material/Stars";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 const Home = () => {
   return (
     <div className="home-root">
       <div className="quote-section">
         <h1>Abstract View</h1>
+        <h3>ola amigos latos konos mana fitos an siratos</h3>
       </div>
       <div className="card-section">
         <Row>
           {imgData.map((data) => {
             return (
               <Col key={data.title}>
-                <div className="custom-card">
-                  <img
-                    className="custom-card-img"
+                <Card>
+                  <Card.Img
+                    variant="top"
                     src={require(`../../Static/${data.path}`)}
-                    alt={data.content}
                   />
-                  <div className="custom-card-description">
-                    <h5>{data.title}</h5>
-                    <h5>{data.content}</h5>
+                  <Card.Body>
+                    <Card.Title>{data.title}</Card.Title>
+                    <Card.Text>{data.content}</Card.Text>
                     <div className="card-icon">
                       <StarsIcon></StarsIcon>
                       <DeleteForeverIcon></DeleteForeverIcon>
                     </div>
-                  </div>
-                </div>
+                  </Card.Body>
+                </Card>
               </Col>
             );
           })}
         </Row>
+        <div className="pagination">
+          <Stack spacing={2}>
+            <Pagination 
+            count={11} 
+            variant="outlined" 
+            showFirstButton 
+            showLastButton
+            boundaryCount={2}
+            siblingCount={1}
+            />
+          </Stack>
+        </div>
       </div>
     </div>
   );
