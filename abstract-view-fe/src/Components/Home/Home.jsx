@@ -12,6 +12,8 @@ import StarsIcon from "@mui/icons-material/Stars";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 const Home = () => {
   return (
@@ -43,6 +45,11 @@ const Home = () => {
             );
           })}
         </Row>
+        <div className="add-img">
+          <Fab variant="extended" size="medium">
+            <AddIcon></AddIcon>Add Image
+          </Fab>
+        </div>
         <div className="pagination">
           <Stack spacing={2}>
             <Pagination 

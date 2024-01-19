@@ -83,6 +83,12 @@
     transform: translateY(0px) scale(1);
 }
 
+.add-img {
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+}
+
 .pagination {
     display: flex;
     justify-content: center;

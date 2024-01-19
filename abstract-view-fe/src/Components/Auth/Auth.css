@@ -1,0 +1,26 @@
+.auth-root {
+    position: relative;
+    height: fit-content;
+    min-height: 100dvh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.auth-form {
+    border: 2px solid red;
+    padding: 5%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: aliceblue;
+}
+
+.input-group {
+    width: 23rem;
+}
+
+.warning {
+    color: crimson;
+}
