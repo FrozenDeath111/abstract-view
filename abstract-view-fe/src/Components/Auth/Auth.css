@@ -24,3 +24,7 @@
 .warning {
     color: crimson;
 }
+
+.visibility-span {
+    cursor: pointer;
+}
